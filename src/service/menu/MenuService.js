@@ -8,6 +8,9 @@ const MenuService = {
       .addDivider()
       .addTitle('title2')
       .addButton('TEST2', 'test2')
+      .addDivider()
+      .addTitle('title3')
+      .addButton('TEST3', 'test3')
       .build();
 
     say(contents);
