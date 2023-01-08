@@ -1,7 +1,11 @@
 import puppeteer from "puppeteer";
 
 // 브라우저, 페이지 초기화
-const browser = await puppeteer.launch();
+const launchConfig = {
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  ignoreDefaultArgs: ['--disable-extensions']
+};
+const browser = await puppeteer.launch(launchConfig);
 let page = await browser.newPage();
 
 // html 조회
