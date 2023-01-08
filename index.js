@@ -1,19 +1,9 @@
-const { App } = require('@slack/bolt');
-const figlet = require('figlet');
-require('dotenv').config()
+import figlet from 'figlet';
+import slackBot from './src/SlackBot.js'
 
-const app = new App({
-  token: process.env.BOT_TOKEN,
-  appToken: process.env.SLACK_APP_TOKEN,
-  socketMode: true,
-});
+// "YATAP BOT" 이쁘게 출력
+figlet('YATAP BOT', (e, data) => console.log(data));
 
-app.message('!hello', async ({ message, say }) => {
-	say('안녕 나는 야탑봇이야~!');
-});
-
-(async () => {
-	figlet('YATAP BOT', (e, data) => console.log(data));
-  await app.start();
-  console.log('⚡️ Bolt app started');
-})();
+// 슬랙봇 시작
+await slackBot.start();
+console.log('YATAP BOT started');
