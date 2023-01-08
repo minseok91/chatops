@@ -1,3 +1,4 @@
+// https://app.slack.com/block-kit-builder/TC61QJ55Z
 export default class SlackBlockBuilder {
 	constructor(builder) {
 		this.blocks = [];
@@ -17,6 +18,28 @@ export default class SlackBlockBuilder {
 	addDivider() {
 		this.blocks.push({
 			"type": "divider"
+		});
+		return this;
+	}
+
+	addLinkButton(actionId, text, buttonText, url) {
+		this.blocks.push({
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": text
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": buttonText,
+					"emoji": true
+				},
+				"value": "value",
+				"url": url,
+				"action_id": actionId
+			}
 		});
 		return this;
 	}
@@ -41,6 +64,9 @@ export default class SlackBlockBuilder {
 	}
 	
 	build() {
-		return { blocks: this.blocks };
+		return {
+			text: 'asdasdas',
+			blocks: this.blocks
+		};
 	}
 };
