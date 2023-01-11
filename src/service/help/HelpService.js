@@ -1,6 +1,5 @@
 const HelpService = {
-	sayServices: async ({ message, say }) => {
-  	const contents = `
+	getHelpMessage: () => `
 *메뉴*
 \`\`\`
 !menu - 전체 메뉴 보기
@@ -8,12 +7,9 @@ const HelpService = {
 
 *뉴스*
 \`\`\`
-!news - 뉴스 메뉴 보기
-!news {검색어} - 뉴스 검색
+!news - 뉴스 보기
 \`\`\`
-`;
-		say(contents);
-	},
+`,
 }
 
 export default HelpService;

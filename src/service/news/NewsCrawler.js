@@ -15,7 +15,6 @@ const findIbricksNews = async () => {
       title: $post('strong').text(),
     });
   });
-  
   return postList;
 };
 
