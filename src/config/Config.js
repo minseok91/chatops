@@ -17,20 +17,22 @@ const slackConfig = {
 };
 
 // message listening
-const slackListeners = {
-  '!help': HelpListener.handleMessage,
-  '!menu': MenuListener.handleMessage,
-  '!news': NewsListener.handleMessage,
-}
+const messageListeners = [
+  { pattern: /^!help$/, listener: HelpListener.help },
+  { pattern: /^!menu$/, listener: MenuListener.menu },
+  { pattern: /^!news$/, listener: NewsListener.ibricksBlogNews },
+  { pattern: /^!news (.*)/, listener: NewsListener.newsSearch },
+];
 
 // action handler
-const slackActionHandlers = {};
-slackActionHandlers[ActionType.COMMON.CLOSE] = CommonActionHandler.close;
-slackActionHandlers[ActionType.COMMON.DO_NOTHING] = CommonActionHandler.doNothing;
-slackActionHandlers[ActionType.MENU.REPLACE_TEXT_TEST] = MenuActionHandler.replaceTextTest;
+const actionHandlers = [
+  { actionId: ActionType.COMMON.CLOSE, handler: CommonActionHandler.close },
+  { actionId: ActionType.COMMON.DO_NOTHING, handler: CommonActionHandler.doNothing },
+  { actionId: ActionType.MENU.REPLACE_TEXT_TEST, handler: MenuActionHandler.replaceTextTest },
+];
 
 export default {
   slackConfig,
-  slackListeners,
-  slackActionHandlers,
+  messageListeners,
+  actionHandlers,
 };

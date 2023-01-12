@@ -1,7 +1,7 @@
 import MenuService from "../service/menu/MenuService.js";
 
 const MenuListener = {
-  handleMessage: async ({ message, say }) => {
+  menu: async ({ context, say }) => {
     say(MenuService.getMenuBlocks());
   },
 }
