@@ -22,6 +22,17 @@ export default class SlackBlockBuilder {
 		return this;
 	}
 
+	addLink(text, url) {
+		this.blocks.push({
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": `<${url}|${text}>`
+			}
+		});
+		return this;
+	}
+
 	addLinkButton(actionId, text, buttonText, url) {
 		this.blocks.push({
 			"type": "section",
@@ -36,7 +47,7 @@ export default class SlackBlockBuilder {
 					"text": buttonText,
 					"emoji": true
 				},
-				"value": "value",
+				"value": "linkButton",
 				"url": url,
 				"action_id": actionId
 			}
@@ -55,7 +66,7 @@ export default class SlackBlockBuilder {
 						"text": text,
 						"emoji": true
 					},
-					"value": "click_me_123",
+					"value": "button",
 					"action_id": actionId
 				}
 			]

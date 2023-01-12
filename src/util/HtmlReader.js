@@ -10,6 +10,7 @@ let page = await browser.newPage();
 
 // html 조회
 const read = async (url) => {
+  console.log(url);
   await page.goto(`${url}`);
   const content = await page.content();
 

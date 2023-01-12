@@ -1,7 +1,7 @@
 import HelpService from "../service/help/HelpService.js";
 
 const HelpListener = {
-	handleMessage: async ({ message, say }) => {
+	help: async ({ context, say }) => {
 		say(HelpService.getHelpMessage());
 	},
 }
